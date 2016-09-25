@@ -50,5 +50,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Search Results Table View Controller-->
+        <scene sceneID="REy-Zf-Dj0">
+            <objects>
+                <tableViewController id="Tov-ub-BTz" userLabel="Search Results Table View Controller" customClass="SearchResultsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c6g-SS-nYm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListingCell" rowHeight="80" id="UtO-7V-LgB">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UtO-7V-LgB" id="pab-Oc-2TF">
+                                    <frame key="frameInset" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G7r-xK-nMx">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="qrS-Bj-nKn"/>
+                                                <constraint firstAttribute="width" constant="80" id="t0N-fr-t74"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator The Terminator The Terminator The Terminator The Terminator The Terminator " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKV-VS-Da8">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2014" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="se9-uP-Jtq">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hKV-VS-Da8" firstAttribute="leading" secondItem="G7r-xK-nMx" secondAttribute="trailing" constant="10" id="Ay3-jb-SVG"/>
+                                        <constraint firstItem="G7r-xK-nMx" firstAttribute="leading" secondItem="pab-Oc-2TF" secondAttribute="leading" constant="15" id="M6j-am-ITa"/>
+                                        <constraint firstItem="G7r-xK-nMx" firstAttribute="centerY" secondItem="pab-Oc-2TF" secondAttribute="centerY" id="Nsq-5i-avk"/>
+                                        <constraint firstItem="se9-uP-Jtq" firstAttribute="leading" secondItem="G7r-xK-nMx" secondAttribute="trailing" constant="10" id="XEb-Ye-0Ps"/>
+                                        <constraint firstItem="hKV-VS-Da8" firstAttribute="top" secondItem="G7r-xK-nMx" secondAttribute="top" id="cNI-33-gOq"/>
+                                        <constraint firstAttribute="trailing" secondItem="se9-uP-Jtq" secondAttribute="trailing" constant="15" id="no2-Vn-8rf"/>
+                                        <constraint firstAttribute="trailing" secondItem="hKV-VS-Da8" secondAttribute="trailing" constant="15" id="vzS-cO-8EG"/>
+                                        <constraint firstItem="se9-uP-Jtq" firstAttribute="bottom" secondItem="G7r-xK-nMx" secondAttribute="bottom" id="yhH-vf-eaU"/>
+                                        <constraint firstItem="se9-uP-Jtq" firstAttribute="top" secondItem="hKV-VS-Da8" secondAttribute="bottom" constant="10" id="zed-st-wvF"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Tov-ub-BTz" id="Yg9-lV-Jsx"/>
+                            <outlet property="delegate" destination="Tov-ub-BTz" id="PJ5-Id-gLK"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Pc-qS-Eew" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="127"/>
+        </scene>
     </scenes>
 </document>
