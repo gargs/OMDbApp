@@ -10,7 +10,7 @@
         <!--Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchViewController" customModule="OMDb" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BYZ-38-t0r" customClass="SearchViewController" customModule="OMDb" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -55,7 +55,7 @@
         <!--Search Results View Controller-->
         <scene sceneID="g70-UU-ApO">
             <objects>
-                <viewController id="2kB-Kn-m2G" customClass="SearchResultsViewController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="2kB-Kn-m2G" customClass="SearchResultsViewController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MGc-Yd-usW"/>
                         <viewControllerLayoutGuide type="bottom" id="q2L-vv-X3C"/>
@@ -67,21 +67,21 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KBF-r9-SU6">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListingCell" rowHeight="80" id="eUG-M9-Sed" userLabel="ListingCell" customClass="ListingTableViewCell" customModule="OMDb" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListingCell" rowHeight="162" id="eUG-M9-Sed" userLabel="ListingCell" customClass="ListingTableViewCell" customModule="OMDb" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUG-M9-Sed" id="0XF-Sy-xbv">
-                                            <frame key="frameInset" width="375" height="79.5"/>
+                                            <frame key="frameInset" width="375" height="161.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Ih7-qW-Z5O">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="M8L-Nb-dRc"/>
-                                                        <constraint firstAttribute="width" constant="80" id="Q3f-t4-eYW"/>
+                                                        <constraint firstAttribute="height" constant="150" id="M8L-Nb-dRc"/>
+                                                        <constraint firstAttribute="width" constant="100" id="Q3f-t4-eYW"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26r-LT-uSJ">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26r-LT-uSJ">
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -116,6 +116,7 @@
                             <constraint firstItem="q2L-vv-X3C" firstAttribute="top" secondItem="KBF-r9-SU6" secondAttribute="bottom" id="dVS-da-BpO"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="KBF-r9-SU6" id="5Yf-ru-Cpu"/>
                     </connections>
@@ -128,8 +129,9 @@
         <scene sceneID="WDa-RL-x0z">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="96y-FT-fLg" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Br0-1b-dmy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Br0-1b-dmy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
