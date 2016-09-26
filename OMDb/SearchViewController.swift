@@ -21,15 +21,27 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction private func search() {
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let searchTerm = searchTextField.text, searchTerm.characters.count > 0 {
-            debugPrint("Searched for: " + searchTerm)
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let searchResultsViewController = segue.destination as? SearchResultsViewController {
+            searchResultsViewController.searchTerm = searchTextField.text
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        search()
+        let segueIdentifier = "showSearchResults"
+        
+        if shouldPerformSegue(withIdentifier: segueIdentifier, sender: nil) {
+            performSegue(withIdentifier: segueIdentifier, sender: nil)
+        }
         return true
     }
 }

@@ -30,8 +30,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZrT-Gn-OJm">
                                 <state key="normal" title="Search"/>
                                 <connections>
-                                    <action selector="search" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ina-EY-a45"/>
-                                    <segue destination="2kB-Kn-m2G" kind="show" id="FpU-Mg-UBB"/>
+                                    <segue destination="2kB-Kn-m2G" kind="show" identifier="showSearchResults" id="FpU-Mg-UBB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,7 +71,7 @@
                                         <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUG-M9-Sed" id="0XF-Sy-xbv">
-                                            <frame key="frameInset" width="375" height="79"/>
+                                            <frame key="frameInset" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thumbnail" translatesAutoresizingMaskIntoConstraints="NO" id="Ih7-qW-Z5O">

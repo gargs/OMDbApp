@@ -10,12 +10,33 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var searchTerm: String!
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    private var titles: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
+        
+        debugPrint("Search Term: " + searchTerm)
+        
+        
+        
+        
+        let session = URLSession.shared
+        let request = URLRequest(url: URL(string: "http://omdbapi.com/?s=terminator")!)
+        let downloadTask = session.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                if let results = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) {
+                    let searchResults = parse(results)
+                    debugPrint(searchResults)
+                }
+            }
+        }
+        downloadTask.resume()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

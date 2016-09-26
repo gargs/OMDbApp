@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6014DF461D98498300CD6344 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6014DF451D98498300CD6344 /* SearchResultsTableViewController.swift */; };
 		6014DF481D985E9F00CD6344 /* ListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6014DF471D985E9F00CD6344 /* ListingTableViewCell.swift */; };
+		603EF5631D98F83E00D7FD11 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603EF5621D98F83E00D7FD11 /* APIHelper.swift */; };
+		603EF5651D992F3900D7FD11 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603EF5641D992F3900D7FD11 /* SearchResult.swift */; };
 		60FAD7581D979E35006ECA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD7571D979E35006ECA50 /* AppDelegate.swift */; };
 		60FAD75A1D979E35006ECA50 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60FAD7591D979E35006ECA50 /* SearchViewController.swift */; };
 		60FAD75D1D979E35006ECA50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60FAD75B1D979E35006ECA50 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* Begin PBXFileReference section */
 		6014DF451D98498300CD6344 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		6014DF471D985E9F00CD6344 /* ListingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingTableViewCell.swift; sourceTree = "<group>"; };
+		603EF5621D98F83E00D7FD11 /* APIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		603EF5641D992F3900D7FD11 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		60FAD7541D979E35006ECA50 /* OMDb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OMDb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60FAD7571D979E35006ECA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60FAD7591D979E35006ECA50 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -58,14 +62,16 @@
 		60FAD7561D979E35006ECA50 /* OMDb */ = {
 			isa = PBXGroup;
 			children = (
+				60FAD7631D979E35006ECA50 /* Info.plist */,
+				603EF5621D98F83E00D7FD11 /* APIHelper.swift */,
 				60FAD7571D979E35006ECA50 /* AppDelegate.swift */,
+				6014DF471D985E9F00CD6344 /* ListingTableViewCell.swift */,
+				603EF5641D992F3900D7FD11 /* SearchResult.swift */,
+				6014DF451D98498300CD6344 /* SearchResultsTableViewController.swift */,
 				60FAD7591D979E35006ECA50 /* SearchViewController.swift */,
-				60FAD75B1D979E35006ECA50 /* Main.storyboard */,
 				60FAD75E1D979E35006ECA50 /* Assets.xcassets */,
 				60FAD7601D979E35006ECA50 /* LaunchScreen.storyboard */,
-				60FAD7631D979E35006ECA50 /* Info.plist */,
-				6014DF451D98498300CD6344 /* SearchResultsTableViewController.swift */,
-				6014DF471D985E9F00CD6344 /* ListingTableViewCell.swift */,
+				60FAD75B1D979E35006ECA50 /* Main.storyboard */,
 			);
 			path = OMDb;
 			sourceTree = "<group>";
@@ -146,6 +152,8 @@
 				60FAD75A1D979E35006ECA50 /* SearchViewController.swift in Sources */,
 				60FAD7581D979E35006ECA50 /* AppDelegate.swift in Sources */,
 				6014DF481D985E9F00CD6344 /* ListingTableViewCell.swift in Sources */,
+				603EF5631D98F83E00D7FD11 /* APIHelper.swift in Sources */,
+				603EF5651D992F3900D7FD11 /* SearchResult.swift in Sources */,
 				6014DF461D98498300CD6344 /* SearchResultsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
