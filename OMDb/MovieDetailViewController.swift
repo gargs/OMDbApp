@@ -42,7 +42,7 @@ class MovieDetailViewController: UIViewController {
                 }
             }
         }
-                
+        
         currentDownloadTask = fetchDetails(for: movie.imdbID) { [weak self] (movieDetails, error) in
             if let details = movieDetails {
                 self?.castLabel.text = details.cast
