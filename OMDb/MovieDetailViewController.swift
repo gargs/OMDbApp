@@ -18,6 +18,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var castLabel: UILabel!
     @IBOutlet weak var plotLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var typeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class MovieDetailViewController: UIViewController {
         
         titleLabel.text = movie.title
         yearLabel.text = movie.year
+        typeLabel.text = movie.type?.iconLabel()
         
         fetchDetails(for: movie.imdbID) { [unowned self] (movieDetails, error) in
             if let details = movieDetails {

@@ -13,6 +13,19 @@ enum Type: String {
     case series
     case short
     case game
+    
+    func iconLabel() -> String {
+        switch self {
+        case .movie:
+            return "📽"
+        case .series:
+            return "📺"
+        case .short:
+            return "🎞"
+        case .game:
+            return "🕹"
+        }
+    }
 }
 
 struct SearchResult {

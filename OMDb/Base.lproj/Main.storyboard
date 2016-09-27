@@ -183,6 +183,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="📺" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cr-KD-ycz">
+                                        <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nMq-Eg-3a0" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="0YC-63-f3a"/>
@@ -195,12 +201,14 @@
                                     <constraint firstItem="fcN-3E-TP2" firstAttribute="top" secondItem="nMq-Eg-3a0" secondAttribute="bottom" constant="10" id="PtZ-R3-l5L"/>
                                     <constraint firstItem="auq-Zu-1r1" firstAttribute="top" secondItem="Gzq-rh-ILz" secondAttribute="bottom" constant="20" id="QFA-U4-0wA"/>
                                     <constraint firstItem="Gzq-rh-ILz" firstAttribute="top" secondItem="T7y-PU-Pbs" secondAttribute="top" id="Qlc-1j-Xty"/>
+                                    <constraint firstItem="7Cr-KD-ycz" firstAttribute="leading" secondItem="Gzq-rh-ILz" secondAttribute="leading" id="Rcp-bz-aBE"/>
                                     <constraint firstItem="Gzq-rh-ILz" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="VtV-kw-0YJ"/>
                                     <constraint firstItem="fcN-3E-TP2" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="ZNm-vD-HhV"/>
                                     <constraint firstAttribute="trailing" secondItem="auq-Zu-1r1" secondAttribute="trailing" constant="20" symbolic="YES" id="bO3-ux-ArD"/>
                                     <constraint firstAttribute="trailing" secondItem="6Vp-17-iMY" secondAttribute="trailing" constant="20" symbolic="YES" id="cRH-s3-1Ni"/>
                                     <constraint firstItem="nMq-Eg-3a0" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="n2h-QX-UaU"/>
                                     <constraint firstItem="auq-Zu-1r1" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="nQ0-pW-Zar"/>
+                                    <constraint firstItem="7Cr-KD-ycz" firstAttribute="bottom" secondItem="Gzq-rh-ILz" secondAttribute="bottom" id="qZX-wR-2Fl"/>
                                     <constraint firstItem="nMq-Eg-3a0" firstAttribute="top" secondItem="auq-Zu-1r1" secondAttribute="bottom" constant="2" id="qyO-qx-TIe"/>
                                     <constraint firstAttribute="trailing" secondItem="nMq-Eg-3a0" secondAttribute="trailing" constant="20" symbolic="YES" id="r5g-YW-lji"/>
                                     <constraint firstItem="fcN-3E-TP2" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="t45-jO-Z1K"/>
@@ -224,6 +232,7 @@
                         <outlet property="posterImageView" destination="Gzq-rh-ILz" id="wOi-fx-hvV"/>
                         <outlet property="ratingLabel" destination="4iO-LF-WR4" id="X28-xD-YvV"/>
                         <outlet property="titleLabel" destination="auq-Zu-1r1" id="3X1-WG-nRd"/>
+                        <outlet property="typeLabel" destination="7Cr-KD-ycz" id="u3d-sm-P8x"/>
                         <outlet property="yearLabel" destination="nMq-Eg-3a0" id="qJK-CU-DUp"/>
                     </connections>
                 </viewController>
