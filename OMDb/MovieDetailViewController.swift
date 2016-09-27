@@ -13,8 +13,8 @@ class MovieDetailViewController: UIViewController {
     
     var movie: Movie!
     
-    private var currentDownloadTask: URLSessionDataTask?
-    private var thumbnailDownloadTask: URLSessionDataTask?
+    private weak var currentDownloadTask: URLSessionDataTask?
+    private weak var thumbnailDownloadTask: URLSessionDataTask?
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!

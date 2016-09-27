@@ -12,7 +12,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var searchTerm: String?
     
-    private var currentSearchTask: URLSessionDataTask?
+    private weak var currentSearchTask: URLSessionDataTask?
     
     private var searchResult: SearchResult? {
         didSet(newValue) {
