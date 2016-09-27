@@ -10,7 +10,7 @@ import UIKit
 
 class MovieDetailViewController: UIViewController {
     
-    var imdbID: String!
+    var movie: Movie!
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,6 +22,27 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = movie.title
+        navigationItem.backBarButtonItem?.title = "Search"
         
+        titleLabel.text = movie.title
+        yearLabel.text = movie.year
+        
+        fetchDetails(for: movie.imdbID) { [unowned self] (movieDetails, error) in
+            if let details = movieDetails {
+                self.castLabel.text = details.cast
+                self.plotLabel.text = details.plot
+                self.ratingLabel.text = details.rating
+                
+                DispatchQueue.global(qos: .background).async {
+                    if let imageData = try? Data(contentsOf: details.posterURL!) {
+                        DispatchQueue.main.async {
+                            self.posterImageView.image = UIImage(data: imageData)
+                        }
+                    }
+                }
+                
+            }
+        }
     }
 }

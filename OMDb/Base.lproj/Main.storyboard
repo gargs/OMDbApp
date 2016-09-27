@@ -104,7 +104,7 @@
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="Ih7-qW-Z5O" id="Cxo-W0-10m"/>
                                             <outlet property="titleLabel" destination="26r-LT-uSJ" id="kWd-pL-GIM"/>
-                                            <segue destination="GWP-Ou-Cdl" kind="show" identifier="showDetail" action="showDetailViewController:sender:" id="PKw-Si-VaZ"/>
+                                            <segue destination="GWP-Ou-Cdl" kind="show" id="Bgv-S6-93G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -122,6 +122,9 @@
                             <constraint firstItem="q2L-vv-X3C" firstAttribute="top" secondItem="KBF-r9-SU6" secondAttribute="bottom" id="dVS-da-BpO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bvx-2w-2QI">
+                        <barButtonItem key="backBarButtonItem" title="Search" id="Q7X-eF-VPa"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="KBF-r9-SU6" id="5Yf-ru-Cpu"/>
@@ -170,13 +173,13 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcN-3E-TP2">
                                         <string key="text">Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg </string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vp-17-iMY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vp-17-iMY">
                                         <string key="text">A couple reunite years after the night they first met, fell in love, and separated, convinced that one day they'd end up together.</string>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -198,7 +201,7 @@
                                     <constraint firstAttribute="trailing" secondItem="6Vp-17-iMY" secondAttribute="trailing" constant="20" symbolic="YES" id="cRH-s3-1Ni"/>
                                     <constraint firstItem="nMq-Eg-3a0" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="n2h-QX-UaU"/>
                                     <constraint firstItem="auq-Zu-1r1" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="nQ0-pW-Zar"/>
-                                    <constraint firstItem="nMq-Eg-3a0" firstAttribute="top" secondItem="auq-Zu-1r1" secondAttribute="bottom" constant="10" id="qyO-qx-TIe"/>
+                                    <constraint firstItem="nMq-Eg-3a0" firstAttribute="top" secondItem="auq-Zu-1r1" secondAttribute="bottom" constant="2" id="qyO-qx-TIe"/>
                                     <constraint firstAttribute="trailing" secondItem="nMq-Eg-3a0" secondAttribute="trailing" constant="20" symbolic="YES" id="r5g-YW-lji"/>
                                     <constraint firstItem="fcN-3E-TP2" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="t45-jO-Z1K"/>
                                     <constraint firstItem="6Vp-17-iMY" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="teg-rQ-gWK"/>
@@ -214,6 +217,7 @@
                             <constraint firstItem="QA7-N1-Bxo" firstAttribute="top" secondItem="T7y-PU-Pbs" secondAttribute="bottom" id="h5e-K5-mim"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="castLabel" destination="fcN-3E-TP2" id="P9g-Zd-B3W"/>
                         <outlet property="plotLabel" destination="6Vp-17-iMY" id="MCG-J1-yHL"/>

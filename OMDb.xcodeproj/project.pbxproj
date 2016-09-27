@@ -68,13 +68,13 @@
 				603EF5621D98F83E00D7FD11 /* APIHelper.swift */,
 				60FAD7571D979E35006ECA50 /* AppDelegate.swift */,
 				6014DF471D985E9F00CD6344 /* ListingTableViewCell.swift */,
+				6078D1571D9AB60800F045C9 /* MovieDetailViewController.swift */,
 				603EF5641D992F3900D7FD11 /* SearchResult.swift */,
 				6014DF451D98498300CD6344 /* SearchResultsTableViewController.swift */,
 				60FAD7591D979E35006ECA50 /* SearchViewController.swift */,
 				60FAD75E1D979E35006ECA50 /* Assets.xcassets */,
 				60FAD7601D979E35006ECA50 /* LaunchScreen.storyboard */,
 				60FAD75B1D979E35006ECA50 /* Main.storyboard */,
-				6078D1571D9AB60800F045C9 /* MovieDetailViewController.swift */,
 			);
 			path = OMDb;
 			sourceTree = "<group>";
