@@ -203,11 +203,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAN-Bq-jtV">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                        <state key="normal" title="Open in IMDB"/>
+                                        <connections>
+                                            <action selector="openIMDB" destination="GWP-Ou-Cdl" eventType="touchUpInside" id="Xvp-ON-TnV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="nMq-Eg-3a0" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="0YC-63-f3a"/>
                                     <constraint firstAttribute="trailing" secondItem="fcN-3E-TP2" secondAttribute="trailing" constant="20" symbolic="YES" id="1PF-sA-Rb7"/>
-                                    <constraint firstAttribute="bottom" secondItem="6Vp-17-iMY" secondAttribute="bottom" constant="22" id="2Eq-SS-rCR"/>
+                                    <constraint firstAttribute="trailing" secondItem="DAN-Bq-jtV" secondAttribute="trailing" constant="20" symbolic="YES" id="4PI-eh-clH"/>
                                     <constraint firstItem="6Vp-17-iMY" firstAttribute="top" secondItem="fcN-3E-TP2" secondAttribute="bottom" constant="10" id="8eG-E9-yGb"/>
                                     <constraint firstItem="auq-Zu-1r1" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="93k-DS-gRx"/>
                                     <constraint firstItem="4iO-LF-WR4" firstAttribute="bottom" secondItem="Gzq-rh-ILz" secondAttribute="bottom" id="FDu-82-SI1"/>
@@ -216,7 +223,10 @@
                                     <constraint firstItem="auq-Zu-1r1" firstAttribute="top" secondItem="Gzq-rh-ILz" secondAttribute="bottom" constant="20" id="QFA-U4-0wA"/>
                                     <constraint firstItem="Gzq-rh-ILz" firstAttribute="top" secondItem="T7y-PU-Pbs" secondAttribute="top" id="Qlc-1j-Xty"/>
                                     <constraint firstItem="7Cr-KD-ycz" firstAttribute="leading" secondItem="Gzq-rh-ILz" secondAttribute="leading" id="Rcp-bz-aBE"/>
+                                    <constraint firstItem="DAN-Bq-jtV" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="SA0-L7-gaE"/>
+                                    <constraint firstItem="DAN-Bq-jtV" firstAttribute="top" secondItem="6Vp-17-iMY" secondAttribute="bottom" constant="20" id="V5i-vw-mjE"/>
                                     <constraint firstItem="Gzq-rh-ILz" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="VtV-kw-0YJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="DAN-Bq-jtV" secondAttribute="bottom" constant="22" id="Z9u-yl-Z6u"/>
                                     <constraint firstItem="fcN-3E-TP2" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="ZNm-vD-HhV"/>
                                     <constraint firstAttribute="trailing" secondItem="auq-Zu-1r1" secondAttribute="trailing" constant="20" symbolic="YES" id="bO3-ux-ArD"/>
                                     <constraint firstAttribute="trailing" secondItem="6Vp-17-iMY" secondAttribute="trailing" constant="20" symbolic="YES" id="cRH-s3-1Ni"/>

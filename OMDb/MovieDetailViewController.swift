@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class MovieDetailViewController: UIViewController {
     
@@ -50,5 +51,10 @@ class MovieDetailViewController: UIViewController {
                 self?.ratingLabel.text = details.rating
             }
         }
+    }
+    
+    @IBAction func openIMDB() {
+        let imdbId = movie.imdbID
+        UIApplication.shared.openURL(URL(string: "http://www.imdb.com/title/" + imdbId + "/")!)
     }
 }
