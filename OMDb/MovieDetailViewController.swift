@@ -13,6 +13,7 @@ class MovieDetailViewController: UIViewController {
     var movie: Movie!
     
     private var currentDownloadTask: URLSessionDataTask?
+    private var thumbnailDownloadTask: URLSessionDataTask?
     
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -32,14 +33,16 @@ class MovieDetailViewController: UIViewController {
         yearLabel.text = movie.year
         typeLabel.text = movie.type?.iconLabel()
         
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            if self?.movie.posterURL != nil, let imageData = try? Data(contentsOf: (self?.movie.posterURL!)!) {
-                DispatchQueue.main.async {
-                    self?.posterImageView.image = UIImage(data: imageData)
+        if let thumbnailURL = movie.posterURL {
+            thumbnailDownloadTask = posterImage(for: thumbnailURL) { [weak self] (image) in
+                if image != nil {
+                    self?.posterImageView.image = image
+                } else {
+                    self?.posterImageView.image = UIImage(named: "thumbnail.png")
                 }
             }
         }
-        
+                
         currentDownloadTask = fetchDetails(for: movie.imdbID) { [weak self] (movieDetails, error) in
             if let details = movieDetails {
                 self?.castLabel.text = details.cast
