@@ -13,7 +13,7 @@ class ListingTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    private var currentThumbnailDownloadTask: URLSessionDataTask?
+    private weak var currentThumbnailDownloadTask: URLSessionDataTask?
     
     var thumbnailURL: URL? {
         willSet(newValue) {
