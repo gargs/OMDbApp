@@ -22,7 +22,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SA1-Oo-aWA">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="JK4-qL-wzI"/>
                                 </connections>
@@ -131,7 +131,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="96y-FT-fLg" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Br0-1b-dmy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Br0-1b-dmy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -146,6 +146,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="thumbnail" width="40" height="40"/>
+        <image name="thumbnail" width="100" height="150"/>
     </resources>
 </document>
