@@ -16,7 +16,12 @@ enum Type: String {
 }
 
 struct SearchResult {
-    var resultCount: Int
+    var totalResultCount: Int
+    var currentResultCount: Int {
+        get {
+            return movies?.count ?? 0
+        }
+    }
     var currentPage: Int
     var movies: [Movie]?
     

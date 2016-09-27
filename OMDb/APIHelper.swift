@@ -17,7 +17,7 @@ func baseURL() -> URL {
     return urlComponents.url!
 }
 
-func searchURL(searchTerm: String, pageNumber: Int = 1) -> URL {
+func searchURL(searchTerm: String, pageNumber: Int = 1) -> URL? {
     var components = URLComponents(url: baseURL(), resolvingAgainstBaseURL: true)!
     let searchQueryItem = URLQueryItem(name: "s", value: searchTerm)
     let typeQueryItem = URLQueryItem(name: "r", value: "json")
@@ -25,7 +25,32 @@ func searchURL(searchTerm: String, pageNumber: Int = 1) -> URL {
     let pageNumberQueryItem = URLQueryItem(name: "page", value: String(pageNumber))
     
     components.queryItems = [searchQueryItem, typeQueryItem, apiVersionQueryItem, pageNumberQueryItem]
-    return components.url!
+    return components.url
+}
+
+func search(for searchTerm: String, completionHandler: ((SearchResult?, Error?) -> Void)?) {
+    let session = URLSession.shared
+    
+    if let searchURL = searchURL(searchTerm: searchTerm) {
+        let request = URLRequest(url: searchURL)
+        let downloadTask = session.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                if let results = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) {
+                    let searchResults = parse(results)
+//                    debugPrint(searchResults)
+                    DispatchQueue.main.async {
+                        completionHandler?(searchResults, nil)
+                    }
+                } else {
+                    let error = NSError(domain: "com.cerebrawl.OMDb.error", code: 301, userInfo: [NSLocalizedDescriptionKey: "JSON Parsing error"])
+                    completionHandler?(nil, error)
+                }
+            } else {
+                completionHandler?(nil, error)
+            }
+        }
+        downloadTask.resume()
+    }
 }
 
 func parse(_ resultsDictionary: Any, pageNumber: Int = 1) -> SearchResult? {
@@ -54,7 +79,7 @@ func parse(_ resultsDictionary: Any, pageNumber: Int = 1) -> SearchResult? {
                     movies?.append(movie)
                 }
             }
-            let searchResult = SearchResult(resultCount: count, currentPage: pageNumber, movies: movies)
+            let searchResult = SearchResult(totalResultCount: count, currentPage: pageNumber, movies: movies)
             return searchResult
             
         } else {

@@ -79,6 +79,11 @@
                                                         <constraint firstAttribute="height" constant="150" id="M8L-Nb-dRc"/>
                                                         <constraint firstAttribute="width" constant="100" id="Q3f-t4-eYW"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26r-LT-uSJ">
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>

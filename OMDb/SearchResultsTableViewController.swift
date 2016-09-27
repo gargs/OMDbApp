@@ -10,8 +10,13 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var searchTerm: String!
-    var searchResult: SearchResult?
+    var searchTerm: String?
+    
+    private var searchResult: SearchResult? {
+        didSet(newValue) {
+            tableView.reloadData()
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,28 +24,24 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 80
         
-        navigationItem.title = searchTerm
+        guard searchTerm != nil else { return }
         
-        debugPrint("Search Term: " + searchTerm)
+        navigationItem.title = "'" + searchTerm! + "'"
         
-        let session = URLSession.shared
-        let request = URLRequest(url: searchURL(searchTerm: searchTerm))
-        let downloadTask = session.dataTask(with: request) { (data, response, error) in
-            if let data = data {
-                if let results = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) {
-                    let searchResults = parse(results)
-                    debugPrint(searchResults)
-                    DispatchQueue.main.async {
-                        self.searchResult = searchResults
-                        self.tableView.reloadData()
-                    }
-                }
+        debugPrint("Search Term: " + searchTerm!)
+        
+        search(for: searchTerm!) { [unowned self] (searchResult, error) in
+            if let searchResult = searchResult {
+                self.searchResult = searchResult
+            } else {
+                let alert = UIAlertView(title: "Search Error", message: error?.localizedDescription ?? "Please Search Again", delegate: nil, cancelButtonTitle: "OK")
+                alert.show()
             }
         }
-        downloadTask.resume()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,13 +49,13 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResult?.movies?.count ?? 0
+        return searchResult?.currentResultCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingTableViewCell
-        cell.thumbnailURL = searchResult?.movies?[indexPath.row].posterURL
-        cell.titleLabel.text = searchResult?.movies?[indexPath.row].title
+        cell.thumbnailURL = searchResult!.movies![indexPath.row].posterURL
+        cell.titleLabel.text = searchResult!.movies![indexPath.row].title
         
         return cell
     }
