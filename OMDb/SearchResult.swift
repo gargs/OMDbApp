@@ -36,7 +36,7 @@ struct SearchResult {
 struct Movie {
     var title: String
     var year: Int?
-    var imdbID: String?
+    var imdbID: String
     var type: Type?
     var posterURL: URL?
 }

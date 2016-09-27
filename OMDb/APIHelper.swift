@@ -66,7 +66,7 @@ func parse(_ resultsDictionary: Any, pageNumber: Int = 1) -> SearchResult? {
                 for movieResult in movieResults {
                     let title = movieResult["Title"] as! String
                     let year = Int(movieResult["Year"] as! String)
-                    let imdbID = movieResult["imdbID"] as? String
+                    let imdbID = movieResult["imdbID"] as! String
                     let type = Type(rawValue: movieResult["Type"] as! String)
                     let posterURL: URL?
                     if let posterURLString = movieResult["Poster"] as? String {

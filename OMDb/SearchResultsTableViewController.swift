@@ -44,6 +44,17 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? ListingTableViewCell {
+            if let indexPath = tableView.indexPath(for: cell) {
+                let imdbId = searchResult!.movies![indexPath.row].imdbID
+                if let movieDetailViewController = segue.destination as? UIViewController {
+                    // Assign the id
+                }
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

@@ -16,11 +16,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         searchTextField.becomeFirstResponder()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if let searchTerm = searchTextField.text, searchTerm.characters.count > 0 {

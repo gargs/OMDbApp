@@ -104,6 +104,7 @@
                                         <connections>
                                             <outlet property="thumbnailImageView" destination="Ih7-qW-Z5O" id="Cxo-W0-10m"/>
                                             <outlet property="titleLabel" destination="26r-LT-uSJ" id="kWd-pL-GIM"/>
+                                            <segue destination="GWP-Ou-Cdl" kind="show" identifier="showDetail" action="showDetailViewController:sender:" id="PKw-Si-VaZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -133,7 +134,7 @@
         <!--Movie Details View Controller-->
         <scene sceneID="bDK-hc-MrO">
             <objects>
-                <viewController id="GWP-Ou-Cdl" userLabel="Movie Details View Controller" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GWP-Ou-Cdl" userLabel="Movie Details View Controller" customClass="MovieDetailViewController" customModule="OMDb" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z3X-mT-hFG"/>
                         <viewControllerLayoutGuide type="bottom" id="QA7-N1-Bxo"/>
@@ -213,6 +214,14 @@
                             <constraint firstItem="QA7-N1-Bxo" firstAttribute="top" secondItem="T7y-PU-Pbs" secondAttribute="bottom" id="h5e-K5-mim"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="castLabel" destination="fcN-3E-TP2" id="P9g-Zd-B3W"/>
+                        <outlet property="plotLabel" destination="6Vp-17-iMY" id="MCG-J1-yHL"/>
+                        <outlet property="posterImageView" destination="Gzq-rh-ILz" id="wOi-fx-hvV"/>
+                        <outlet property="ratingLabel" destination="4iO-LF-WR4" id="X28-xD-YvV"/>
+                        <outlet property="titleLabel" destination="auq-Zu-1r1" id="3X1-WG-nRd"/>
+                        <outlet property="yearLabel" destination="nMq-Eg-3a0" id="qJK-CU-DUp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbm-Ug-T4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
