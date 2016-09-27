@@ -42,6 +42,7 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
             } else {
                 let alert = UIAlertView(title: "Search Error", message: error?.localizedDescription ?? "Please Search Again", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
+                _ = self.navigationController?.popViewController(animated: true)
             }
         }
     }
