@@ -130,6 +130,94 @@
             </objects>
             <point key="canvasLocation" x="1924" y="139"/>
         </scene>
+        <!--Movie Details View Controller-->
+        <scene sceneID="bDK-hc-MrO">
+            <objects>
+                <viewController id="GWP-Ou-Cdl" userLabel="Movie Details View Controller" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z3X-mT-hFG"/>
+                        <viewControllerLayoutGuide type="bottom" id="QA7-N1-Bxo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uzg-FO-Tk0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7y-PU-Pbs">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gzq-rh-ILz">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="KSV-nx-lKl"/>
+                                            <constraint firstAttribute="height" constant="448" id="P7I-U6-5FW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PG-13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iO-LF-WR4">
+                                        <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auq-Zu-1r1">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMq-Eg-3a0">
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcN-3E-TP2">
+                                        <string key="text">Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg Starring: Saurabh Garg </string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Vp-17-iMY">
+                                        <string key="text">A couple reunite years after the night they first met, fell in love, and separated, convinced that one day they'd end up together.</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nMq-Eg-3a0" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="0YC-63-f3a"/>
+                                    <constraint firstAttribute="trailing" secondItem="fcN-3E-TP2" secondAttribute="trailing" constant="20" symbolic="YES" id="1PF-sA-Rb7"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Vp-17-iMY" secondAttribute="bottom" constant="22" id="2Eq-SS-rCR"/>
+                                    <constraint firstItem="6Vp-17-iMY" firstAttribute="top" secondItem="fcN-3E-TP2" secondAttribute="bottom" constant="10" id="8eG-E9-yGb"/>
+                                    <constraint firstItem="auq-Zu-1r1" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="93k-DS-gRx"/>
+                                    <constraint firstItem="4iO-LF-WR4" firstAttribute="bottom" secondItem="Gzq-rh-ILz" secondAttribute="bottom" id="FDu-82-SI1"/>
+                                    <constraint firstItem="4iO-LF-WR4" firstAttribute="trailing" secondItem="Gzq-rh-ILz" secondAttribute="trailing" id="KuM-xi-cR5"/>
+                                    <constraint firstItem="fcN-3E-TP2" firstAttribute="top" secondItem="nMq-Eg-3a0" secondAttribute="bottom" constant="10" id="PtZ-R3-l5L"/>
+                                    <constraint firstItem="auq-Zu-1r1" firstAttribute="top" secondItem="Gzq-rh-ILz" secondAttribute="bottom" constant="20" id="QFA-U4-0wA"/>
+                                    <constraint firstItem="Gzq-rh-ILz" firstAttribute="top" secondItem="T7y-PU-Pbs" secondAttribute="top" id="Qlc-1j-Xty"/>
+                                    <constraint firstItem="Gzq-rh-ILz" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="VtV-kw-0YJ"/>
+                                    <constraint firstItem="fcN-3E-TP2" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="ZNm-vD-HhV"/>
+                                    <constraint firstAttribute="trailing" secondItem="auq-Zu-1r1" secondAttribute="trailing" constant="20" symbolic="YES" id="bO3-ux-ArD"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Vp-17-iMY" secondAttribute="trailing" constant="20" symbolic="YES" id="cRH-s3-1Ni"/>
+                                    <constraint firstItem="nMq-Eg-3a0" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="n2h-QX-UaU"/>
+                                    <constraint firstItem="auq-Zu-1r1" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="nQ0-pW-Zar"/>
+                                    <constraint firstItem="nMq-Eg-3a0" firstAttribute="top" secondItem="auq-Zu-1r1" secondAttribute="bottom" constant="10" id="qyO-qx-TIe"/>
+                                    <constraint firstAttribute="trailing" secondItem="nMq-Eg-3a0" secondAttribute="trailing" constant="20" symbolic="YES" id="r5g-YW-lji"/>
+                                    <constraint firstItem="fcN-3E-TP2" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="t45-jO-Z1K"/>
+                                    <constraint firstItem="6Vp-17-iMY" firstAttribute="centerX" secondItem="T7y-PU-Pbs" secondAttribute="centerX" id="teg-rQ-gWK"/>
+                                    <constraint firstItem="6Vp-17-iMY" firstAttribute="leading" secondItem="T7y-PU-Pbs" secondAttribute="leading" constant="20" symbolic="YES" id="xm9-PI-jWi"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="T7y-PU-Pbs" secondAttribute="trailing" id="6eE-KU-eG4"/>
+                            <constraint firstItem="T7y-PU-Pbs" firstAttribute="leading" secondItem="Uzg-FO-Tk0" secondAttribute="leading" id="dfz-85-Qey"/>
+                            <constraint firstItem="T7y-PU-Pbs" firstAttribute="top" secondItem="z3X-mT-hFG" secondAttribute="bottom" id="gaK-lG-mGu"/>
+                            <constraint firstItem="QA7-N1-Bxo" firstAttribute="top" secondItem="T7y-PU-Pbs" secondAttribute="bottom" id="h5e-K5-mim"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dbm-Ug-T4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2893.5999999999999" y="138.98050974512745"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="WDa-RL-x0z">
             <objects>
