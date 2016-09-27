@@ -52,11 +52,15 @@ func search(for searchTerm: String, pageNumber: Int = 1, completionHandler: ((Se
                         completionHandler?(searchResults, nil)
                     }
                 } else {
-                    let error = NSError(domain: "com.cerebrawl.OMDb.error", code: 301, userInfo: [NSLocalizedDescriptionKey: "JSON Parsing error"])
-                    completionHandler?(nil, error)
+                    DispatchQueue.main.async {
+                        let error = NSError(domain: "com.cerebrawl.OMDb.error", code: 301, userInfo: [NSLocalizedDescriptionKey: "JSON Parsing error"])
+                        completionHandler?(nil, error)
+                    }
                 }
             } else {
-                completionHandler?(nil, error)
+                DispatchQueue.main.async {
+                    completionHandler?(nil, error)
+                }
             }
         }
         downloadTask.resume()
