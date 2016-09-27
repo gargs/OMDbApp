@@ -32,19 +32,19 @@ class MovieDetailViewController: UIViewController {
         yearLabel.text = movie.year
         typeLabel.text = movie.type?.iconLabel()
         
-        DispatchQueue.global(qos: .background).async { [unowned self] in
-            if self.movie.posterURL != nil, let imageData = try? Data(contentsOf: self.movie.posterURL!) {
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            if self?.movie.posterURL != nil, let imageData = try? Data(contentsOf: (self?.movie.posterURL!)!) {
                 DispatchQueue.main.async {
-                    self.posterImageView.image = UIImage(data: imageData)
+                    self?.posterImageView.image = UIImage(data: imageData)
                 }
             }
         }
         
-        currentDownloadTask = fetchDetails(for: movie.imdbID) { [unowned self] (movieDetails, error) in
+        currentDownloadTask = fetchDetails(for: movie.imdbID) { [weak self] (movieDetails, error) in
             if let details = movieDetails {
-                self.castLabel.text = details.cast
-                self.plotLabel.text = details.plot
-                self.ratingLabel.text = details.rating
+                self?.castLabel.text = details.cast
+                self?.plotLabel.text = details.plot
+                self?.ratingLabel.text = details.rating
             }
         }
     }

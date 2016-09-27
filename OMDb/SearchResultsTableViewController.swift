@@ -36,13 +36,13 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         debugPrint("Search Term: " + searchTerm!)
         
-        currentSearchTask = search(for: searchTerm!) { [unowned self] (searchResult, error) in
+        currentSearchTask = search(for: searchTerm!) { [weak self] (searchResult, error) in
             if let searchResult = searchResult {
-                self.searchResult = searchResult
+                self?.searchResult = searchResult
             } else {
                 let alert = UIAlertView(title: "Search Error", message: error?.localizedDescription ?? "Please Search Again", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
-                _ = self.navigationController?.popViewController(animated: true)
+                _ = self?.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -70,10 +70,32 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResult?.currentResultCount ?? 0
+        if searchResult != nil {
+            // We have a search result with some entries
+            if searchResult!.currentResultCount < searchResult!.totalResultCount {
+                return searchResult!.currentResultCount + 1
+            } else {
+                return searchResult!.currentResultCount
+            }
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let row = indexPath.row
+        
+        if searchResult!.currentResultCount < searchResult!.totalResultCount {
+            if row == searchResult!.currentResultCount {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
+                if let activityIndicatorView = cell.viewWithTag(100) as? UIActivityIndicatorView {
+                    activityIndicatorView.startAnimating()
+                }
+                return cell
+            }
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingTableViewCell
         cell.thumbnailURL = searchResult!.movies![indexPath.row].posterURL
         cell.titleLabel.text = searchResult!.movies![indexPath.row].title
@@ -86,9 +108,9 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         let currentResultCount = searchResult!.currentResultCount
         if indexPath.row == (currentResultCount - 1) && indexPath.row < (totalResultCount - 1) {
             // Fetch the next page
-            currentSearchTask = search(for: searchTerm!, pageNumber: searchResult!.currentPage + 1, completionHandler: { [unowned self] (searchResult, error) in
+            currentSearchTask = search(for: searchTerm!, pageNumber: searchResult!.currentPage + 1, completionHandler: { [weak self] (searchResult, error) in
                 if let searchResult = searchResult {
-                    self.searchResult?.append(searchResult)
+                    self?.searchResult?.append(searchResult)
                 }
             })
         }

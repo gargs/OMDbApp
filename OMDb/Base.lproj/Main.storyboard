@@ -107,6 +107,22 @@
                                             <segue destination="GWP-Ou-Cdl" kind="show" id="Bgv-S6-93G"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingCell" rowHeight="162" id="up1-SG-yWH" userLabel="LoadingCell">
+                                        <rect key="frame" x="0.0" y="190" width="375" height="162"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="up1-SG-yWH" id="TET-yl-gVp">
+                                            <frame key="frameInset" width="375" height="161"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dDR-vZ-1U0"/>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dDR-vZ-1U0" firstAttribute="centerX" secondItem="TET-yl-gVp" secondAttribute="centerX" id="8D3-oY-63L"/>
+                                                <constraint firstItem="dDR-vZ-1U0" firstAttribute="top" secondItem="TET-yl-gVp" secondAttribute="topMargin" constant="20" id="UDJ-7U-aNV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dDR-vZ-1U0" secondAttribute="bottom" constant="20" id="eq6-fN-mns"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="2kB-Kn-m2G" id="ZD1-6V-NY4"/>

@@ -19,14 +19,14 @@ class ListingTableViewCell: UITableViewCell {
         willSet(newValue) {
             if let url = newValue {
                 
-                currentThumbnailDownloadTask = posterImage(for: url, completionHandler: { [unowned self] (image) in
+                currentThumbnailDownloadTask = posterImage(for: url, completionHandler: { [weak self] (image) in
                     
                     if image != nil {
-                        self.thumbnailImageView.image = image
+                        self?.thumbnailImageView.image = image
                     } else {
-                        self.thumbnailImageView.image = UIImage(named: "thumbnail.png")
+                        self?.thumbnailImageView.image = UIImage(named: "thumbnail.png")
                     }
-                    self.currentThumbnailDownloadTask = nil
+                    self?.currentThumbnailDownloadTask = nil
                 })
             } else {
                 thumbnailImageView.image = UIImage(named: "thumbnail.png")
