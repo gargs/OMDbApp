@@ -13,18 +13,30 @@ class ListingTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    private var currentThumbnailDownloadTask: URLSessionDataTask?
+    
     var thumbnailURL: URL? {
         willSet(newValue) {
             if let url = newValue {
-                if let data = try? Data(contentsOf: url) {
-                    let image = UIImage(data: data)
-                    thumbnailImageView.image = image
-                } else {
-                    thumbnailImageView.image = UIImage(named: "thumbnail.png")
-                }
+                
+                currentThumbnailDownloadTask = posterImage(for: url, completionHandler: { [unowned self] (image) in
+                    
+                    if image != nil {
+                        self.thumbnailImageView.image = image
+                    } else {
+                        self.thumbnailImageView.image = UIImage(named: "thumbnail.png")
+                    }
+                    self.currentThumbnailDownloadTask = nil
+                })
             } else {
                 thumbnailImageView.image = UIImage(named: "thumbnail.png")
             }
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        currentThumbnailDownloadTask?.cancel()
+        thumbnailImageView.image = UIImage(named: "thumbnail.png")
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016 Gargs. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 func baseURLComponents() -> URLComponents {
     var urlComponents = URLComponents()
@@ -38,10 +38,10 @@ func detailURL(imdbId: String) -> URL? {
     return components.url
 }
 
-func search(for searchTerm: String, completionHandler: ((SearchResult?, Error?) -> Void)?) {
+func search(for searchTerm: String, pageNumber: Int = 1, completionHandler: ((SearchResult?, Error?) -> Void)?) -> URLSessionDataTask? {
     let session = URLSession.shared
     
-    if let searchURL = searchURL(searchTerm: searchTerm) {
+    if let searchURL = searchURL(searchTerm: searchTerm, pageNumber: pageNumber) {
         let request = URLRequest(url: searchURL)
         let downloadTask = session.dataTask(with: request) { (data, response, error) in
             if let data = data {
@@ -60,10 +60,12 @@ func search(for searchTerm: String, completionHandler: ((SearchResult?, Error?) 
             }
         }
         downloadTask.resume()
+        return downloadTask
     }
+    return nil
 }
 
-func fetchDetails(for imdbId: String, completionHandler: ((MovieDetails?, Error?) -> Void)?) {
+func fetchDetails(for imdbId: String, completionHandler: ((MovieDetails?, Error?) -> Void)?) -> URLSessionDataTask? {
     let session = URLSession.shared
     
     if let detailURL = detailURL(imdbId: imdbId) {
@@ -84,7 +86,9 @@ func fetchDetails(for imdbId: String, completionHandler: ((MovieDetails?, Error?
             }
         }
         downloadTask.resume()
+        return downloadTask
     }
+    return nil
 }
 
 func parseSearchResult(_ resultsDictionary: Any, pageNumber: Int = 1) -> SearchResult? {
@@ -149,4 +153,19 @@ func parseMovieDetails(_ resultsDictionary: Any) -> MovieDetails? {
         }
     }
     return nil
+}
+
+func posterImage(for url: URL, completionHandler: ((UIImage?) -> Void)?) -> URLSessionDataTask? {
+    let session = URLSession.shared
+    let downloadTask = session.dataTask(with: url) { (data, response, error) in
+        if data != nil {
+            if let image = UIImage(data: data!) {
+                DispatchQueue.main.async {
+                    completionHandler?(image)
+                }
+            }
+        }
+    }
+    downloadTask.resume()
+    return downloadTask
 }

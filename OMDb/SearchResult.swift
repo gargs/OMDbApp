@@ -42,6 +42,7 @@ struct SearchResult {
         if let newMovies = searchResults.movies, newMovies.count > 0 {
             movies = movies ?? []
             movies!.append(contentsOf: newMovies)
+            currentPage = currentPage + 1
         }
     }
 }

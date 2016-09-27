@@ -12,6 +12,8 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
     
     var searchTerm: String?
     
+    private var currentSearchTask: URLSessionDataTask?
+    
     private var searchResult: SearchResult? {
         didSet(newValue) {
             tableView.reloadData()
@@ -34,13 +36,20 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         
         debugPrint("Search Term: " + searchTerm!)
         
-        search(for: searchTerm!) { [unowned self] (searchResult, error) in
+        currentSearchTask = search(for: searchTerm!) { [unowned self] (searchResult, error) in
             if let searchResult = searchResult {
                 self.searchResult = searchResult
             } else {
                 let alert = UIAlertView(title: "Search Error", message: error?.localizedDescription ?? "Please Search Again", delegate: nil, cancelButtonTitle: "OK")
                 alert.show()
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
@@ -69,5 +78,18 @@ class SearchResultsViewController: UIViewController, UITableViewDelegate, UITabl
         cell.titleLabel.text = searchResult!.movies![indexPath.row].title
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let totalResultCount = searchResult!.totalResultCount
+        let currentResultCount = searchResult!.currentResultCount
+        if indexPath.row == (currentResultCount - 1) && indexPath.row < (totalResultCount - 1) {
+            // Fetch the next page
+            currentSearchTask = search(for: searchTerm!, pageNumber: searchResult!.currentPage + 1, completionHandler: { [unowned self] (searchResult, error) in
+                if let searchResult = searchResult {
+                    self.searchResult?.append(searchResult)
+                }
+            })
+        }
     }
 }
